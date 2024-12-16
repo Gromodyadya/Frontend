@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первый семестр - Обучение</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 logo-container">
+                    <a href="/"><img src="img/logo.png" alt="Логотип" class="logo"></a>
+                </div>
+                <div class="col-md-6 student-info">
+                    <div class="text-dark">Лылин Александр Антонович</div>
+                    <div>Группа ЭФБО-09-23</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Семестры
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="semester1.html">Семестр 1</a></li>
+                            <li><a class="dropdown-item" href="#">Семестр 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programki.html">Скрипты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Авторизация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Боковая навигация -->
+            <div class="col-md-3 mb-4">
+                <div class="sidebar">
+                    <h5>Навигация по странице</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="#lectures">Лекции</a>
+                        <a class="nav-link" href="#practice">Практические занятия</a>
+                        <a class="nav-link" href="#location">Местоположение</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Основной контент -->
+            <div class="col-md-9">
+                <h1 id="main-header">Первый семестр</h1>
+                <button id="semester2-btn" class="btn btn-primary mt-3">Посмотреть практики второго семестра</button>
+              
+                <!-- Аккордеон с лекциями -->
+                <div class="container mt-4">
+                    <!-- Кнопка для показа лекций -->
+                    <button id="showLecturesBtn" class="btn btn-primary mt-3">Показать лекции</button>
+                  
+                    <!-- Поле ввода и кнопка для добавления новой лекции -->
+                    <div class="form-group mt-3">
+                      <input type="text" class="form-control" id="newLecture" placeholder="Введите название новой лекции">
+                      <button id="addLectureBtn" class="btn btn-success mt-2">Добавить лекцию</button>
+                    </div>
+                  
+                    <!-- Контейнер для таблицы лекций -->
+                    <div id="lecturesContainer" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+                      <div class="accordion mb-4" id="lecturesAccordion">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLectures">
+                              Лекции
+                            </button>
+                          </h2>
+                          <div id="collapseLectures" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <div class="table-responsive">
+                                <table class="table table-striped" id="lecturesTable">
+                                  <thead>
+                                    <tr>
+                                      <th>№</th>
+                                      <th>Тема</th>
+                                      <th>Отметка о посещении</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr><td>1</td><td>Основы языка HTML</td><td class="attendance"></td></tr>
+                                    <tr><td>2</td><td>Углубленное изучение HTML</td><td class="attendance"></td></tr>
+                                    <tr><td>3</td><td>Основы работы в CSS</td><td class="attendance"></td></tr>
+                                    <tr><td>4</td><td>Адаптивная верстка с Flexbox и Grid Layout</td><td class="attendance"></td></tr>
+                                    <tr><td>5</td><td>Bootstrap — работа с фреймворком</td><td class="attendance"></td></tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                                  <!-- <tr>
+                                    <td>6</td>
+                                    <td>Основы языка JavaScript</td>
+                                    <td class="attendance"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>7</td>
+                                    <td>Работа с DOM и событиями в JavaScript</td>
+                                    <td class="attendance"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>8</td>
+                                    <td>Введение в GitHub и GitHub Pages</td>
+                                    <td class="attendance"></td>
+                                  </tr> -->
+              
+                  
+
+                <!-- Аккордеон с практическими занятиями -->
+                <div class="accordion mb-4" id="practiceAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePractice">
+                                Практические занятия
+                            </button>
+                        </h2>
+                        <div id="collapsePractice" class="accordion-collapse collapse show" data-bs-parent="#practiceAccordion">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Тема</th>
+                                                <th>Отметка о посещении</th>
+                                                <th>Отметка о выполнении</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Основы языка HTML</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Формы и элементы HTML</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Таблицы и интерактивные элементы в HTML</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Основы работы с CSS</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Работа с классами в CSS</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Работа с сетками и разметкой в HTML</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Адаптивная верстка</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Bootstrap</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Основы языка JavaScript</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>Базовые задачи на JS</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>DOM-структура приложений и работа с обьектами в языке JS</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>Встраивание скриптов</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>Отладка сценариев</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td>Анимация и работа с ними</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>15</td>
+                                                <td>Github</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>16</td>
+                                                <td>Защита проекта</td>
+                                                <td class="attendance"></td>
+                                                <td class="completion"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карта -->
+                <h2 id="location" class="mb-3">Местоположение</h2>
+                <div class="map-container mb-4">
+                    <div id="map" style="width: 100%; height: 400px;"></div>
+                </div>
+
+                <!-- Карусель -->
+                <div id="imageCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/photo_2024-03-27_07-45-14.jpg" class="d-block w-100" alt="Слайд 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/photo_2024-03-27_07-55-17.jpg" class="d-block w-100" alt="Слайд 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/photo_2024-03-27_07-58-07.jpg" class="d-block w-100" alt="Слайд 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Встроенный PDF -->
+                <div class="pdf-container">
+                    <iframe src="program.pdf" width="100%" height="800" class="border-0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU" type="text/javascript"></script>
+    <script>
+        // Инициализация Яндекс карты
+        if (typeof ymaps !== 'undefined') {
+            ymaps.ready(init);
+            function init(){
+                var myMap = new ymaps.Map("map", {
+                    center: [55.669986, 37.480409], 
+                    zoom: 15
+                });
+        
+                var myPlacemark = new ymaps.Placemark([55.669986, 37.480409], {
+                    hintContent: 'РТУ МИРЭА',
+                    balloonContent: 'РТУ МИРЭА, проспект Вернадского, д. 78'
+                });
+        
+                myMap.geoObjects.add(myPlacemark);
+            }
+        }
+
+        // Обработка таблиц посещаемости
+        const tables = document.querySelectorAll('table');
+    
+        tables.forEach(table => {
+            table.addEventListener('click', function(e) {
+                if (e.target.classList.contains('attendance') || e.target.classList.contains('completion')) {
+                    e.target.textContent = e.target.textContent === '✓' ? '' : '✓';
+                }
+            });
+        });
+    </script>
+    <script>
+        // Обработчик для клика на H1
+        document.getElementById('main-header').addEventListener('click', function() {
+            alert('Вы кликнули на заголовок - так держать!');
+        });
+    
+    
+        // Находим таблицу и кнопку
+        const tableBody = document.querySelector('#collapsePractice tbody');
+        const semesterButton = document.getElementById('semester2-btn');
+    
+        // Данные первого семестра
+        const semester1Data = `
+            <tr><td>1</td><td>Основы языка HTML</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>2</td><td>Формы и элементы HTML</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>3</td><td>Таблицы и интерактивные элементы в HTML</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>4</td><td>Основы работы с CSS</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>5</td><td>Работа с классами в CSS</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>6</td><td>Работа с сетками и разметкой в HTML</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>7</td><td>Адаптивная верстка</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>8</td><td>Bootstrap</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>9</td><td>Основы языка JavaScript</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>10</td><td>Базовые задачи на JS</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>11</td><td>DOM-структура приложений и работа с объектами в языке JS</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>12</td><td>Встраивание скриптов</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>13</td><td>Отладка сценариев</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>14</td><td>Анимация и работа с ними</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>15</td><td>Github</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>16</td><td>Защита проекта</td><td class="attendance"></td><td class="completion"></td></tr>
+        `;
+    
+        // Данные второго семестра
+        const semester2Data = `
+            <tr><td>1</td><td>Базовое бэкенд-приложение</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>2</td><td>HTTP-запросы</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>3</td><td>JSON и работа с ним</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>4</td><td>HTTP-ответы</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>5</td><td>Проектирование API</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>6</td><td>Роутинг и его настройка</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>7</td><td>NoSQL базы данных</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>8</td><td>Обеспечение авторизации и доступа пользователей</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>9</td><td>Работа сторонних сервисов уведомления и авторизации</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>10</td><td>Основы ReactJS</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>11</td><td>Работа с компонентами динамической DOM</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>12</td><td>Использование хуков в React</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>14</td><td>Основы микросервисной архитектуры</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>15</td><td>Разработка классических модулей веб-приложений</td><td class="attendance"></td><td class="completion"></td></tr>
+            <tr><td>16</td><td>Разработка классических модулей веб-приложений</td><td class="attendance"></td><td class="completion"></td></tr>
+        `;
+    
+        let isSemester2 = false; // Флаг состояния
+    
+        // Обработчик переключения
+        semesterButton.addEventListener('click', function() {
+            if (isSemester2) {
+                // Вернуться к первому семестру
+                tableBody.innerHTML = semester1Data;
+                semesterButton.textContent = 'Посмотреть практики второго семестра';
+            } else {
+                // Показать второй семестр
+                tableBody.innerHTML = semester2Data;
+                semesterButton.textContent = 'Вернуться к практикам первого семестра';
+            }
+            isSemester2 = !isSemester2; // Переключить состояние
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+  const showLecturesBtn = document.getElementById('showLecturesBtn');
+  const lecturesContainer = document.getElementById('lecturesContainer');
+
+  let isVisible = false; // Состояние видимости таблицы
+
+  showLecturesBtn.addEventListener('click', () => {
+    if (!isVisible) {
+      // Показать таблицу с анимацией
+      lecturesContainer.style.display = 'block';
+      requestAnimationFrame(() => {
+        lecturesContainer.style.opacity = '1';
+      });
+    } else {
+      // Скрыть таблицу с анимацией
+      lecturesContainer.style.opacity = '0';
+      setTimeout(() => {
+        lecturesContainer.style.display = 'none';
+      }, 500);
+    }
+    isVisible = !isVisible;
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const addLectureBtn = document.getElementById('addLectureBtn');
+  const newLectureInput = document.getElementById('newLecture');
+  const lecturesTableBody = document.querySelector('#lecturesTable tbody');
+  const showLecturesBtn = document.getElementById('showLecturesBtn');
+  const lecturesContainer = document.getElementById('lecturesContainer');
+
+  let lectureCount = 9; // Счетчик для динамического нумерования лекций
+
+  // Обработчик для кнопки "Добавить лекцию"
+  addLectureBtn.addEventListener('click', function () {
+    const lectureText = newLectureInput.value.trim();
+    if (lectureText) {
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${lectureCount}</td>
+        <td>${lectureText}</td>
+        <td class="attendance"></td>
+      `;
+      lecturesTableBody.appendChild(newRow);
+
+      // Очищаем поле ввода
+      newLectureInput.value = '';
+      lectureCount++; // Увеличиваем счетчик
+    } else {
+      alert('Пожалуйста, введите название лекции!');
+    }
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const showLecturesBtn = document.getElementById('showLecturesBtn');
+  const lecturesContainer = document.getElementById('lecturesContainer');
+  const lecturesTableRows = document.querySelectorAll('#lecturesTable tbody tr');
+
+  let isLecturesVisible = false;
+
+  // Анимация появления таблицы
+  function animateTableRows() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transition = `opacity 0.5s ease ${Array.from(lecturesTableRows).indexOf(entry.target) * 100}ms`;
+          entry.target.style.opacity = '1';
+        } else {
+          entry.target.style.transition = `opacity 0.5s ease`;
+          entry.target.style.opacity = '0';
+        }
+      });
+    }, observerOptions);
+
+    lecturesTableRows.forEach(row => {
+      row.style.opacity = '0';
+      observer.observe(row);
+    });
+  }
+
+  // Показ таблицы и запуск анимации
+  showLecturesBtn.addEventListener('click', () => {
+    if (!isLecturesVisible) {
+      lecturesContainer.style.display = 'flex';
+      requestAnimationFrame(() => {
+        lecturesContainer.style.opacity = '1';
+        animateTableRows();
+      });
+    } else {
+      lecturesContainer.style.opacity = '0';
+      setTimeout(() => {
+        lecturesContainer.style.display = 'none';
+      }, 500);
+    }
+    isLecturesVisible = !isLecturesVisible;
+  });
+});
+
+    </script>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p>© Лылин Александр Антонович, 2024</p>
+            <div>
+                <a href="https://t.me/alekslylin" class="text-light me-3">Telegram</a>
+                <a href="https://vk.com/alexlylin" class="text-light">VK</a>
+            </div>
+        </div>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTop" title="Наверх">
+        <i class="bi bi-arrow-up-short" style="font-size: 2rem;"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

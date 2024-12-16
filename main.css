@@ -1,0 +1,246 @@
+.header-top {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+}
+
+.logo {
+  max-height: 40px;
+  width: auto;
+}
+
+.student-info {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .student-info {
+      text-align: center;
+      
+  }
+  .logo-container{
+    text-align: center;
+  }
+
+  .sidebar {
+    margin-bottom: 20px;
+}
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+      display: none;
+  }
+}
+
+.profile-image {
+  max-width: 300px;
+  height: auto;
+}
+
+.video-container {
+  display: flex;
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+.video-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #212529;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  border: none;
+}
+
+.scroll-to-top:hover {
+  background-color: #0d6efd;
+  transform: translateY(-3px);
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Добавление тени при наведении */
+.scroll-to-top:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.dropdown-item {
+  color: rgba(255,255,255,.7);
+}
+
+.dropdown-item:hover {
+  background-color: #495057;
+  color: white;
+}
+
+/* Стиль для активного состояния кнопки выпадающего списка */
+.nav-item.dropdown .nav-link:focus {
+  color: white;
+}
+
+/* Добавляем стрелочку к дропдауну */
+.dropdown-toggle::after {
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+
+
+.sidebar { background-color: #f8f9fa; padding: 20px; }
+.pdf-container { width: 100%; height: 800px; }
+.map-container { width: 100%; height: 400px; margin-bottom: 20px; }
+.carousel-item img { height: 400px; object-fit: cover; }
+
+.attendance, .completion {
+  cursor: pointer;
+  text-align: center;
+  width: 80px; 
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  border-radius: 8px;
+}
+
+.service-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.service-card h4 {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.service-card p {
+  flex-grow: 1;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.service-card button {
+  margin-top: auto;
+}
+
+.botton-zadanie {
+  padding: 10px;
+}
+
+.container-botton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1 {
+  transition: transform 0.3s ease;
+}
+
+p {
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.profile-image {
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+
+#submissionMessage {
+  display: none;
+  color: red;
+  transition: color 0.5s ease;
+  font-size: 1.2em;
+}
+
+
+/* Общие стили модального окна */
+.modal2 {
+  display: none; /* Изначально скрыто */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Стили для содержимого модального окна */
+.modal-content2 {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: pulseColor 1.5s infinite; /* Анимация переливания */
+}
+
+/* Анимация переливающегося цвета */
+@keyframes pulseColor {
+  0% {
+    background-color: #ffffff;
+  }
+  100% {
+    background-color: #0000ff;
+  }
+}
+
+/* Стили для новой таблицы и анимаций */
+#lecturesTable tbody tr {
+  opacity: 0; /* Начинаем с невидимых строк */
+  transition: opacity 0.5s ease;
+}
+
+#lecturesContainer {
+  transition: opacity 0.3s ease;
+}
